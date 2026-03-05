@@ -40,6 +40,7 @@ func RegisterRouting(router *gin.Engine) {
 		appsData := FlareData.LoadFavoriteBookmarks()
 		for _, bookmark := range appsData.Items {
 			if bookmark.URL == decodeURL {
+				c.Header("Referrer-Policy", "no-referrer")
 				c.Redirect(http.StatusFound, string(decoded))
 				c.Abort()
 				return
@@ -49,6 +50,7 @@ func RegisterRouting(router *gin.Engine) {
 		bookmarksData := FlareData.LoadNormalBookmarks()
 		for _, bookmark := range bookmarksData.Items {
 			if bookmark.URL == decodeURL {
+				c.Header("Referrer-Policy", "no-referrer")
 				c.Redirect(http.StatusFound, string(decoded))
 				c.Abort()
 				return

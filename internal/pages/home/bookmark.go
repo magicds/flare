@@ -79,9 +79,9 @@ func renderBookmarksWithoutCategories(bookmarks *[]FlareModel.Bookmark, OpenBook
 		}
 
 		if OpenBookmarkNewTab {
-			tpl += `<li><a target="_blank" rel="noopener" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
+			tpl += `<li><a target="_blank" rel="noopener noreferrer" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
 		} else {
-			tpl += `<li><a rel="noopener" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
+			tpl += `<li><a rel="noopener noreferrer" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
 		}
 	}
 	return `<div class="bookmark-group-container pull-left"><ul class="bookmark-list">` + tpl + `</ul></div>`
@@ -122,18 +122,18 @@ func renderBookmarksWithCategories(bookmarks *[]FlareModel.Bookmark, category *F
 		if bookmark.Category != "" {
 			if bookmark.Category == category.ID {
 				if OpenBookmarkNewTab {
-					tpl += `<li><a target="_blank" rel="noopener" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
+					tpl += `<li><a target="_blank" rel="noopener noreferrer" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
 				} else {
-					tpl += `<li><a rel="noopener" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
+					tpl += `<li><a rel="noopener noreferrer" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
 				}
 				isEmpty = false
 			}
 		} else {
 			if category.ID == defaultCategory.ID {
 				if OpenBookmarkNewTab {
-					tpl += `<li><a target="_blank" rel="noopener" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
+					tpl += `<li><a target="_blank" rel="noopener noreferrer" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
 				} else {
-					tpl += `<li><a rel="noopener" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
+					tpl += `<li><a rel="noopener noreferrer" href="` + templateURL + `" class="bookmark">` + templateIcon + `<span>` + bookmark.Name + `</span></a></li>`
 				}
 				isEmpty = false
 			}
