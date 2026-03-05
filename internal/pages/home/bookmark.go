@@ -79,7 +79,7 @@ func renderBookmarksWithoutCategories(b *strings.Builder, bookmarks *[]model.Boo
 			templateIcon = fn.GetYandexFavicon(bookmark.URL, mdi.GetIconByName(bookmark.Icon))
 		}
 		if OpenBookmarkNewTab {
-			b.WriteString(`<li><a target="_blank" rel="noopener" href="`)
+			b.WriteString(`<li><a target="_blank" rel="noopener noreferrer" href="`)
 			b.WriteString(templateURL)
 			b.WriteString(`" class="bookmark">`)
 			b.WriteString(templateIcon)
@@ -87,7 +87,7 @@ func renderBookmarksWithoutCategories(b *strings.Builder, bookmarks *[]model.Boo
 			b.WriteString(bookmark.Name)
 			b.WriteString(`</span></a></li>`)
 		} else {
-			b.WriteString(`<li><a rel="noopener" href="`)
+			b.WriteString(`<li><a rel="noopener noreferrer" href="`)
 			b.WriteString(templateURL)
 			b.WriteString(`" class="bookmark">`)
 			b.WriteString(templateIcon)
@@ -124,9 +124,9 @@ func renderBookmarksWithCategories(b *strings.Builder, bookmarks *[]model.Bookma
 			continue
 		}
 		if OpenBookmarkNewTab {
-			itemBuf.WriteString(`<li><a target="_blank" rel="noopener" href="`)
+			itemBuf.WriteString(`<li><a target="_blank" rel="noopener noreferrer" href="`)
 		} else {
-			itemBuf.WriteString(`<li><a rel="noopener" href="`)
+			itemBuf.WriteString(`<li><a rel="noopener noreferrer" href="`)
 		}
 		itemBuf.WriteString(templateURL)
 		itemBuf.WriteString(`" class="bookmark">`)

@@ -77,7 +77,7 @@ func GenerateApplicationsTemplate(filter string, options *model.Application) tem
 		if options.OpenAppNewTab {
 			b.WriteString(`<div class="app-container" data-id="`)
 			b.WriteString(app.Icon)
-			b.WriteString(`"><a target="_blank" rel="noopener" href="`)
+			b.WriteString(`"><a target="_blank" rel="noopener noreferrer" href="`)
 			b.WriteString(templateURL)
 			b.WriteString(`" class="app-item" title="`)
 			b.WriteString(app.Name)
@@ -91,7 +91,7 @@ func GenerateApplicationsTemplate(filter string, options *model.Application) tem
 		} else {
 			b.WriteString(`<div class="app-container" data-id="`)
 			b.WriteString(app.Icon)
-			b.WriteString(`"><a rel="noopener" href="`)
+			b.WriteString(`"><a rel="noopener noreferrer" href="`)
 			b.WriteString(templateURL)
 			b.WriteString(`" class="app-item" title="`)
 			b.WriteString(app.Name)

@@ -30,6 +30,7 @@ func RegisterRouting(e *echo.Echo) {
 		if errApps == nil {
 			for _, bookmark := range appsData.Items {
 				if bookmark.URL == decodeURL {
+					c.Response().Header().Set("Referrer-Policy", "no-referrer")
 					return c.Redirect(http.StatusFound, string(decoded))
 				}
 			}
@@ -38,6 +39,7 @@ func RegisterRouting(e *echo.Echo) {
 		if errBookmarks == nil {
 			for _, bookmark := range bookmarksData.Items {
 				if bookmark.URL == decodeURL {
+					c.Response().Header().Set("Referrer-Policy", "no-referrer")
 					return c.Redirect(http.StatusFound, string(decoded))
 				}
 			}
